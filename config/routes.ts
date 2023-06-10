@@ -36,6 +36,12 @@ export default [
     component: './Notification',
   },
   {
+    name: 'list.department',
+    icon: 'table',
+    path: '/department',
+    component: './Department',
+  },
+  {
     path: '/welcome',
     name: 'welcome',
     icon: 'smile',

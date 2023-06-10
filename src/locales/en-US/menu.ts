@@ -23,6 +23,8 @@ export default {
   'menu.form.advanced-form': 'Advanced Form',
   'menu.list': 'List',
   'menu.list.live': 'site',
+  'menu.list.notification': 'notification management',
+  'menu.list.department': 'department management',
   'menu.list.table-list': 'Search Table',
   'menu.list.basic-list': 'Basic List',
   'menu.list.card-list': 'Card List',

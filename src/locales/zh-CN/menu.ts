@@ -24,6 +24,7 @@ export default {
   'menu.list': '列表页',
   'menu.list.live': '现场工地',
   'menu.list.notification': '通知公告管理',
+  'menu.list.department': '部门管理',
   'menu.list.table-list': '查询表格',
   'menu.list.basic-list': '标准列表',
   'menu.list.card-list': '卡片列表',

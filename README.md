@@ -7,3 +7,9 @@
 * 执行`pnpm i`下载依赖
 * 执行`pnpm start`启动项目
 * ctrl+C 暂停项目
+
+
+# key
+* pro component
+* antd
+* 
