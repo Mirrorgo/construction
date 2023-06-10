@@ -50,7 +50,6 @@ const columns: ProColumns<NotificationItem>[] = [
     title: '创建者',
     key: 'author',
     dataIndex: 'author',
-    hideInSearch: true,
   },
   {
     title: '创建时间',
