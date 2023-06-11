@@ -23,6 +23,12 @@ export default [
     ],
   },
   {
+    path: '/welcome',
+    name: 'welcome',
+    icon: 'smile',
+    component: './Welcome',
+  },
+  {
     name: 'list.live',
     icon: 'warning',
     // icon: 'table',
@@ -42,11 +48,25 @@ export default [
     component: './Department',
   },
   {
-    path: '/welcome',
-    name: 'welcome',
-    icon: 'smile',
-    component: './Welcome',
+    name: 'list.employee',
+    icon: 'table',
+    path: '/employee',
+    component: './Employee',
   },
+
+  {
+    name: 'list.meeting',
+    icon: 'table',
+    path: '/meeting',
+    component: './Meeting',
+  },
+  {
+    name: 'list.punch_record',
+    icon: 'table',
+    path: '/punch_record',
+    component: './Punch_record',
+  },
+
   {
     path: '/admin',
     name: 'admin',
