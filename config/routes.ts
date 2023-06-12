@@ -29,6 +29,12 @@ export default [
     component: './Main',
   },
   {
+    name: '主页2',
+    icon: 'warning',
+    path: '/main2',
+    component: './Main2',
+  },
+  {
     name: 'list.live',
     icon: 'warning',
     // icon: 'table',
