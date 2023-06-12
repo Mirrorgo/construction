@@ -23,6 +23,12 @@ export default [
     ],
   },
   {
+    name: '主页',
+    icon: 'warning',
+    path: '/main',
+    component: './Main',
+  },
+  {
     name: 'list.live',
     icon: 'warning',
     // icon: 'table',
