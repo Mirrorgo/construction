@@ -16,25 +16,27 @@ export const waitTime = async (time: number = 100) => {
   await waitTimePromise(time);
 };
 
-type DepartmentItem = {
-  id: number;
-  name: string; // 部门名称
-  phone_number: number;
-  email: string;
-  charger: string;
+type PermitCertificateItem = {
+  permit_certificate_id: number; //经营许可证编号
+  construction_unit: string; // 建设单位
+  project_name: string; // 工程名称
+  construction_place: string; // 建设地址
+  design_unit: string; // 设计单位
+  contract_price: string; // 合同价格
+  contract_duration: string; // 合同工期
 };
 
-const columns: ProColumns<DepartmentItem>[] = [
+const columns: ProColumns<PermitCertificateItem>[] = [
   {
-    title: 'id',
-    dataIndex: 'id',
-    key: 'id',
-    width: 48,
-    hideInSearch: true,
+    title: '许可证编号',
+    dataIndex: 'permit_certificate_id',
+    key: 'permit_certificate_id',
+    width: 100,
+    // hideInSearch: true,
   },
   {
-    title: '部门名称',
-    dataIndex: 'name',
+    title: '建设单位',
+    dataIndex: 'construction_unit',
     // copyable: true,
     // ellipsis: true,
     // tip: '标题过长会自动收缩',
@@ -48,24 +50,35 @@ const columns: ProColumns<DepartmentItem>[] = [
     // },
   },
   {
-    title: '手机',
-    key: 'phone_number',
-    dataIndex: 'phone_number',
+    title: '工程名称',
+    key: 'project_name',
+    dataIndex: 'project_name',
     hideInSearch: true,
   },
   {
-    title: '邮箱',
-    key: 'email',
-    dataIndex: 'email',
+    title: '建设地址',
+    key: 'construction_place',
+    dataIndex: 'construction_place',
     hideInSearch: true,
   },
   {
-    title: '负责人',
-    key: 'charger',
-    dataIndex: 'charger',
+    title: '设计单位',
+    key: 'design_unit',
+    dataIndex: 'design_unit',
     hideInSearch: true,
   },
-
+  {
+    title: '合同价格 (万)',
+    key: 'contract_price',
+    dataIndex: 'contract_price',
+    hideInSearch: true,
+  },
+  {
+    title: '合同工期 (年)',
+    key: 'contract_duration',
+    dataIndex: 'contract_duration',
+    hideInSearch: true,
+  },
   {
     title: '操作',
     valueType: 'option',
@@ -74,7 +87,7 @@ const columns: ProColumns<DepartmentItem>[] = [
       <a
         key="editable"
         onClick={() => {
-          action?.startEditable?.(record.id);
+          action?.startEditable?.(record.permit_certificate_id);
         }}
       >
         编辑
@@ -93,12 +106,12 @@ const columns: ProColumns<DepartmentItem>[] = [
   },
 ];
 
-function Department() {
+function PermitCertificate() {
   const actionRef = useRef<ActionType>();
   return (
     <div>
       <div></div>
-      <ProTable<DepartmentItem>
+      <ProTable<PermitCertificateItem>
         columns={columns}
         actionRef={actionRef}
         cardBordered
@@ -106,8 +119,8 @@ function Department() {
           // console.log(sort, filter); // 添加额外的sort项目
           // await waitTime(2000);
           return request<{
-            data: DepartmentItem[];
-          }>('https://mock.apifox.cn/m1/2858719-0-default/department/list', {
+            data: PermitCertificateItem[];
+          }>('https://mock.apifox.cn/m1/2858719-0-default/permitCertificate/list', {
             params,
           });
         }}
@@ -159,4 +172,4 @@ function Department() {
   );
 }
 
-export default Department;
+export default PermitCertificate;

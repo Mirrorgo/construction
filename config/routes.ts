@@ -29,45 +29,6 @@ export default [
     component: './Welcome',
   },
   {
-    name: 'list.live',
-    icon: 'warning',
-    // icon: 'table',
-    path: '/live',
-    component: './Live',
-  },
-  {
-    name: 'list.notification',
-    icon: 'table',
-    path: '/notification',
-    component: './Notification',
-  },
-  {
-    name: 'list.department',
-    icon: 'table',
-    path: '/department',
-    component: './Department',
-  },
-  {
-    name: 'list.employee',
-    icon: 'table',
-    path: '/employee',
-    component: './Employee',
-  },
-
-  {
-    name: 'list.meeting',
-    icon: 'table',
-    path: '/meeting',
-    component: './Meeting',
-  },
-  {
-    name: 'list.punch_record',
-    icon: 'table',
-    path: '/punch_record',
-    component: './Punch_record',
-  },
-
-  {
     path: '/admin',
     name: 'admin',
     icon: 'crown',
@@ -84,6 +45,259 @@ export default [
       },
     ],
   },
+  {
+    //path: '/admin',
+    path: '/watch-state',
+    name: '监管状态',
+    icon: 'crown',
+    access: 'canAdmin',
+    routes: [
+      {
+        //path: '/admin',
+        path: '/watch-state',
+        redirect: '/watch-state/sub-page',
+      },
+
+      {
+        path: '/watch-state/live',
+        name: '现场工地',
+        icon: 'warning',
+        // component: './Admin',
+        component: './Live',
+      },
+      {
+        path: '/watch-state/notification',
+        name: '通知公告',
+        // component: './Admin',
+        component: './Notification/index',
+      },
+      // {
+      //   path: '/watch-state/department',
+      //   name: '部门管理',
+      //   // component: './Admin',
+      //   component: './Department/index',
+      // },
+    ],
+  },
+
+  {
+    //path: '/admin',
+    // path: '/watch-state',
+    path: '/enterprise-management',
+    name: '企业管理',
+    icon: 'crown',
+    access: 'canAdmin',
+    routes: [
+      {
+        //path: '/admin',
+        // path: '/watch-state',
+        path: '/enterprise-management',
+        redirect: '/enterprise-management/sub-page',
+      },
+      {
+        path: '/enterprise-management/department',
+        name: '部门管理',
+        // component: './Admin',
+        component: './Department/index',
+      },
+
+      {
+        path: '/enterprise-management/employee',
+        name: '员工管理',
+        icon: 'warning',
+        // component: './Admin',
+        component: './Employee/index',
+      },
+      {
+        path: '/enterprise-management/meeting',
+        name: '会议管理',
+        icon: 'warning',
+        // component: './Admin',
+        component: './Meeting/index',
+      },
+      {
+        path: '/enterprise-management/punch-record',
+        name: '打卡记录管理',
+        icon: 'warning',
+        // component: './Admin',
+        component: './Punch_record/index',
+      },
+      // {
+      //   path: '/enterprise-management/notification',
+      //   name: '通知公告',
+      //   // component: './Admin',
+      //   component: './Notification/index',
+      // },
+    ],
+  },
+  {
+    path: '/construction-worker',
+    name: '建筑工人',
+    icon: 'crown',
+    access: 'canAdmin',
+    routes: [
+      {
+        //path: '/admin',
+        // path: '/watch-state',
+        path: '/construction-worker',
+        redirect: '/construction-worker/sub-page',
+      },
+      {
+        path: '/construction-worker/project',
+        name: '项目管理',
+        // component: './Admin',
+        component: './Project/index',
+      },
+
+      {
+        path: '/construction-worker/advice-feedback',
+        name: '意见反馈',
+        icon: 'warning',
+        // component: './Admin',
+        component: './Advice/index',
+      },
+    ],
+  },
+  {
+    path: '/electronic-certificate-management',
+    name: '电子证明管理',
+    icon: 'crown',
+    access: 'canAdmin',
+    routes: [
+      {
+        //path: '/admin',
+        // path: '/watch-state',
+        path: '/electronic-certificate-management',
+        redirect: '/electronic-certificate-management/sub-page',
+      },
+      {
+        path: '/electronic-certificate-management/permit-certificate',
+        name: '施工许可证管理',
+        // component: './Admin',
+        component: './PermitCertificate/index',
+      },
+
+      {
+        path: '/electronic-certificate-management/qualification-certificate',
+        name: '经营资质证管理',
+        icon: 'warning',
+        // component: './Admin',
+        component: './QualificationCertificate/index',
+      },
+    ],
+  },
+
+  {
+    path: '/integrity-information-management',
+    name: '诚信信息管理',
+    icon: 'crown',
+    access: 'canAdmin',
+    routes: [
+      {
+        //path: '/admin',
+        // path: '/watch-state',
+        path: '/integrity-information-management',
+        redirect: '/integrity-information-management/sub-page',
+      },
+      {
+        path: '/integrity-information-management/enterprise-integrity-record-management',
+        name: '企业诚信记录管理',
+        // component: './Admin',
+        component: './EnterpriseIntegrityRecord/index',
+      },
+
+      {
+        path: '/integrity-information-management/person-integrity-record-management',
+        name: '个人诚信记录管理',
+        icon: 'warning',
+        // component: './Admin',
+        component: './PersonIntegrityRecord/index',
+      },
+      {
+        path: '/integrity-information-management/blacklist-record-management',
+        name: '黑名单记录管理',
+        icon: 'warning',
+        // component: './Admin',
+        component: './BlacklistRecord/index',
+      },
+    ],
+  },
+
+  // {
+  //   name: 'list.notification',
+  //   // icon: 'table',
+  //   icon: 'smile',
+  //   path: '/notification',
+  //   component: './Notification',
+  // },
+  // // {
+  // //   name: 'list.department',
+  // //   icon: 'table',
+  // //   path: '/department',
+  // //   component: './Department',
+  // // },
+  // {
+  //   name: 'list.employee',
+  //   icon: 'table',
+  //   path: '/employee',
+  //   component: './Employee',
+  // },
+
+  // {
+  //   name: 'list.meeting',
+  //   icon: 'table',
+  //   path: '/meeting',
+  //   component: './Meeting',
+  // },
+  // {
+  //   name: 'list.punch_record',
+  //   icon: 'table',
+  //   path: '/punch_record',
+  //   component: './Punch_record',
+  // },
+  // {
+  //   name: 'list.project',
+  //   icon: 'table',
+  //   path: '/project',
+  //   component: './Project',
+  // },
+  // {
+  //   name: 'list.advice',
+  //   icon: 'table',
+  //   path: '/advice',
+  //   component: './Advice',
+  // },
+  // {
+  //   name: 'list.permitCertificate',
+  //   icon: 'table',
+  //   path: '/permitCertificate',
+  //   component: './PermitCertificate',
+  // },
+
+  // {
+  //   name: 'list.qualificationCertificate',
+  //   icon: 'table',
+  //   path: '/qualificationCertificate',
+  //   component: './QualificationCertificate',
+  // },
+  // {
+  //   name: 'list.enterpriseIntegrityRecord',
+  //   icon: 'table',
+  //   path: '/enterpriseIntegrityRecord',
+  //   component: './EnterpriseIntegrityRecord',
+  // },
+  // {
+  //   name: 'list.personIntegrityRecord',
+  //   icon: 'table',
+  //   path: '/personIntegrityRecord',
+  //   component: './PersonIntegrityRecord',
+  // },
+  // {
+  //   name: 'list.blacklistRecord',
+  //   icon: 'table',
+  //   path: '/blacklistRecord',
+  //   component: './BlacklistRecord',
+  // },
   {
     name: 'list.table-list',
     icon: 'table',

@@ -16,25 +16,25 @@ export const waitTime = async (time: number = 100) => {
   await waitTimePromise(time);
 };
 
-type DepartmentItem = {
-  id: number;
-  name: string; // 部门名称
-  phone_number: number;
-  email: string;
-  charger: string;
+type AdviceItem = {
+  advice_id: number; // 意见编号
+  advice_title: string; // 意见标题
+  advice_content: string; // 意见内容
+  proposer: string; // 提出者
+  feedback_time: string; // 反馈时间
 };
 
-const columns: ProColumns<DepartmentItem>[] = [
+const columns: ProColumns<AdviceItem>[] = [
   {
-    title: 'id',
-    dataIndex: 'id',
-    key: 'id',
-    width: 48,
+    title: '意见编号',
+    dataIndex: 'advice_id',
+    key: 'advice_id',
+    width: 80,
     hideInSearch: true,
   },
   {
-    title: '部门名称',
-    dataIndex: 'name',
+    title: '意见标题',
+    dataIndex: 'advice_title',
     // copyable: true,
     // ellipsis: true,
     // tip: '标题过长会自动收缩',
@@ -48,21 +48,21 @@ const columns: ProColumns<DepartmentItem>[] = [
     // },
   },
   {
-    title: '手机',
-    key: 'phone_number',
-    dataIndex: 'phone_number',
+    title: '意见内容',
+    key: 'advice_content',
+    dataIndex: 'advice_content',
+    // hideInSearch: true,
+  },
+  {
+    title: '提出者',
+    key: 'proposer',
+    dataIndex: 'proposer',
     hideInSearch: true,
   },
   {
-    title: '邮箱',
-    key: 'email',
-    dataIndex: 'email',
-    hideInSearch: true,
-  },
-  {
-    title: '负责人',
-    key: 'charger',
-    dataIndex: 'charger',
+    title: '反馈时间',
+    key: 'feedback_time',
+    dataIndex: 'feedback_time',
     hideInSearch: true,
   },
 
@@ -74,7 +74,7 @@ const columns: ProColumns<DepartmentItem>[] = [
       <a
         key="editable"
         onClick={() => {
-          action?.startEditable?.(record.id);
+          action?.startEditable?.(record.advice_id);
         }}
       >
         编辑
@@ -93,12 +93,12 @@ const columns: ProColumns<DepartmentItem>[] = [
   },
 ];
 
-function Department() {
+function Advice() {
   const actionRef = useRef<ActionType>();
   return (
     <div>
       <div></div>
-      <ProTable<DepartmentItem>
+      <ProTable<AdviceItem>
         columns={columns}
         actionRef={actionRef}
         cardBordered
@@ -106,8 +106,8 @@ function Department() {
           // console.log(sort, filter); // 添加额外的sort项目
           // await waitTime(2000);
           return request<{
-            data: DepartmentItem[];
-          }>('https://mock.apifox.cn/m1/2858719-0-default/department/list', {
+            data: AdviceItem[];
+          }>('https://mock.apifox.cn/m1/2858719-0-default/advice/list', {
             params,
           });
         }}
@@ -159,4 +159,4 @@ function Department() {
   );
 }
 
-export default Department;
+export default Advice;

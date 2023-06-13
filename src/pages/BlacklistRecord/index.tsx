@@ -15,26 +15,27 @@ export const waitTimePromise = async (time: number = 100) => {
 export const waitTime = async (time: number = 100) => {
   await waitTimePromise(time);
 };
-
-type DepartmentItem = {
-  id: number;
-  name: string; // 部门名称
-  phone_number: number;
-  email: string;
-  charger: string;
+// BlacklistRecord
+type BlacklistRecordItem = {
+  blacklist_record_id: number; // 黑名单记录编号
+  blacklist_record_subject: string; // 黑名单记录主体
+  identification_department: string; // 认定部门
+  putin_date: string; // 列入日期
+  putout_date: string; // 列出日期
+  blacklist_record_reason: string; // 黑名单记录事由
 };
 
-const columns: ProColumns<DepartmentItem>[] = [
+const columns: ProColumns<BlacklistRecordItem>[] = [
   {
-    title: 'id',
-    dataIndex: 'id',
-    key: 'id',
-    width: 48,
-    hideInSearch: true,
+    title: '黑名单记录编号',
+    dataIndex: 'blacklist_record_id',
+    key: 'blacklist_record_id',
+    width: 140,
+    // hideInSearch: true,
   },
   {
-    title: '部门名称',
-    dataIndex: 'name',
+    title: '黑名单记录主体',
+    dataIndex: 'blacklist_record_subject',
     // copyable: true,
     // ellipsis: true,
     // tip: '标题过长会自动收缩',
@@ -48,24 +49,30 @@ const columns: ProColumns<DepartmentItem>[] = [
     // },
   },
   {
-    title: '手机',
-    key: 'phone_number',
-    dataIndex: 'phone_number',
+    title: '认定部门',
+    key: 'identification_department',
+    dataIndex: 'identification_department',
     hideInSearch: true,
   },
   {
-    title: '邮箱',
-    key: 'email',
-    dataIndex: 'email',
+    title: '列入日期',
+    key: 'putin_date',
+    dataIndex: 'putin_date',
     hideInSearch: true,
   },
   {
-    title: '负责人',
-    key: 'charger',
-    dataIndex: 'charger',
+    title: '列出日期',
+    key: 'putout_date',
+    dataIndex: 'putout_date',
     hideInSearch: true,
   },
-
+  {
+    title: '黑名单记录事由',
+    key: 'blacklist_record_reason',
+    dataIndex: 'blacklist_record_reason',
+    hideInSearch: true,
+  },
+  // blacklist_record_reason
   {
     title: '操作',
     valueType: 'option',
@@ -74,7 +81,7 @@ const columns: ProColumns<DepartmentItem>[] = [
       <a
         key="editable"
         onClick={() => {
-          action?.startEditable?.(record.id);
+          action?.startEditable?.(record.blacklist_record_id);
         }}
       >
         编辑
@@ -93,12 +100,12 @@ const columns: ProColumns<DepartmentItem>[] = [
   },
 ];
 
-function Department() {
+function BlacklistRecord() {
   const actionRef = useRef<ActionType>();
   return (
     <div>
       <div></div>
-      <ProTable<DepartmentItem>
+      <ProTable<BlacklistRecordItem>
         columns={columns}
         actionRef={actionRef}
         cardBordered
@@ -106,8 +113,8 @@ function Department() {
           // console.log(sort, filter); // 添加额外的sort项目
           // await waitTime(2000);
           return request<{
-            data: DepartmentItem[];
-          }>('https://mock.apifox.cn/m1/2858719-0-default/department/list', {
+            data: BlacklistRecordItem[];
+          }>('https://mock.apifox.cn/m1/2858719-0-default/blacklistRecord/list', {
             params,
           });
         }}
@@ -159,4 +166,4 @@ function Department() {
   );
 }
 
-export default Department;
+export default BlacklistRecord;

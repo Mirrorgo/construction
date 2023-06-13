@@ -16,25 +16,27 @@ export const waitTime = async (time: number = 100) => {
   await waitTimePromise(time);
 };
 
-type DepartmentItem = {
-  id: number;
-  name: string; // 部门名称
-  phone_number: number;
-  email: string;
-  charger: string;
+type QualificationCertificateItem = {
+  certificate_id: number; //证书编号
+  enterprise_name: string; // 企业名称
+  detail_address: string; // 详细地址
+  business_license_registration_number: string; // 营业执照注册号
+  register_capital: string; // 注册资本
+  legal_representative: string; // 法定代表人
+  duration: string; // 有效期
 };
 
-const columns: ProColumns<DepartmentItem>[] = [
+const columns: ProColumns<QualificationCertificateItem>[] = [
   {
-    title: 'id',
-    dataIndex: 'id',
-    key: 'id',
-    width: 48,
-    hideInSearch: true,
+    title: '证书编号',
+    dataIndex: 'certificate_id',
+    key: 'certificate_id',
+    width: 80,
+    // hideInSearch: true,
   },
   {
-    title: '部门名称',
-    dataIndex: 'name',
+    title: '企业名称',
+    dataIndex: 'enterprise_name',
     // copyable: true,
     // ellipsis: true,
     // tip: '标题过长会自动收缩',
@@ -48,21 +50,33 @@ const columns: ProColumns<DepartmentItem>[] = [
     // },
   },
   {
-    title: '手机',
-    key: 'phone_number',
-    dataIndex: 'phone_number',
+    title: '详细地址',
+    key: 'detail_address',
+    dataIndex: 'detail_address',
     hideInSearch: true,
   },
   {
-    title: '邮箱',
-    key: 'email',
-    dataIndex: 'email',
+    title: '营业执照注册号',
+    key: 'business_license_registration_number',
+    dataIndex: 'business_license_registration_number',
     hideInSearch: true,
   },
   {
-    title: '负责人',
-    key: 'charger',
-    dataIndex: 'charger',
+    title: '注册资本',
+    key: 'register_capital',
+    dataIndex: 'register_capital',
+    hideInSearch: true,
+  },
+  {
+    title: '法定代表人',
+    key: 'legal_representative',
+    dataIndex: 'legal_representative',
+    hideInSearch: true,
+  },
+  {
+    title: '有效期',
+    key: 'duration',
+    dataIndex: 'duration',
     hideInSearch: true,
   },
 
@@ -74,7 +88,7 @@ const columns: ProColumns<DepartmentItem>[] = [
       <a
         key="editable"
         onClick={() => {
-          action?.startEditable?.(record.id);
+          action?.startEditable?.(record.certificate_id);
         }}
       >
         编辑
@@ -93,12 +107,12 @@ const columns: ProColumns<DepartmentItem>[] = [
   },
 ];
 
-function Department() {
+function QualificationCertificate() {
   const actionRef = useRef<ActionType>();
   return (
     <div>
       <div></div>
-      <ProTable<DepartmentItem>
+      <ProTable<QualificationCertificateItem>
         columns={columns}
         actionRef={actionRef}
         cardBordered
@@ -106,8 +120,8 @@ function Department() {
           // console.log(sort, filter); // 添加额外的sort项目
           // await waitTime(2000);
           return request<{
-            data: DepartmentItem[];
-          }>('https://mock.apifox.cn/m1/2858719-0-default/department/list', {
+            data: QualificationCertificateItem[];
+          }>('https://mock.apifox.cn/m1/2858719-0-default/qualificationCertificate/list', {
             params,
           });
         }}
@@ -159,4 +173,4 @@ function Department() {
   );
 }
 
-export default Department;
+export default QualificationCertificate;

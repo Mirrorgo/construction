@@ -16,25 +16,26 @@ export const waitTime = async (time: number = 100) => {
   await waitTimePromise(time);
 };
 
-type DepartmentItem = {
-  id: number;
-  name: string; // 部门名称
-  phone_number: number;
-  email: string;
-  charger: string;
+type ProjectItem = {
+  project_id: number; // 项目编号
+  project_name: string; // 项目名称
+  project_place: string; // 项目地点
+  project_scale: string; // 项目规模
+  project_people: number; // 项目人数
+  project_time: string; // 项目时间
 };
 
-const columns: ProColumns<DepartmentItem>[] = [
+const columns: ProColumns<ProjectItem>[] = [
   {
-    title: 'id',
-    dataIndex: 'id',
-    key: 'id',
+    title: '项目编号',
+    dataIndex: 'project_id',
+    key: 'project_id',
     width: 48,
     hideInSearch: true,
   },
   {
-    title: '部门名称',
-    dataIndex: 'name',
+    title: '项目名称',
+    dataIndex: 'project_name',
     // copyable: true,
     // ellipsis: true,
     // tip: '标题过长会自动收缩',
@@ -48,21 +49,27 @@ const columns: ProColumns<DepartmentItem>[] = [
     // },
   },
   {
-    title: '手机',
-    key: 'phone_number',
-    dataIndex: 'phone_number',
+    title: '项目地点',
+    key: 'project_place',
+    dataIndex: 'project_place',
+    // hideInSearch: true,
+  },
+  {
+    title: '项目规模',
+    key: 'project_scale',
+    dataIndex: 'project_scale',
     hideInSearch: true,
   },
   {
-    title: '邮箱',
-    key: 'email',
-    dataIndex: 'email',
+    title: '项目人数',
+    key: 'project_people',
+    dataIndex: 'project_people',
     hideInSearch: true,
   },
   {
-    title: '负责人',
-    key: 'charger',
-    dataIndex: 'charger',
+    title: '项目时间',
+    key: 'project_time',
+    dataIndex: 'project_time',
     hideInSearch: true,
   },
 
@@ -74,7 +81,7 @@ const columns: ProColumns<DepartmentItem>[] = [
       <a
         key="editable"
         onClick={() => {
-          action?.startEditable?.(record.id);
+          action?.startEditable?.(record.project_id);
         }}
       >
         编辑
@@ -93,12 +100,12 @@ const columns: ProColumns<DepartmentItem>[] = [
   },
 ];
 
-function Department() {
+function Project() {
   const actionRef = useRef<ActionType>();
   return (
     <div>
-      <div></div>
-      <ProTable<DepartmentItem>
+      <div>测试</div>
+      <ProTable<ProjectItem>
         columns={columns}
         actionRef={actionRef}
         cardBordered
@@ -106,8 +113,8 @@ function Department() {
           // console.log(sort, filter); // 添加额外的sort项目
           // await waitTime(2000);
           return request<{
-            data: DepartmentItem[];
-          }>('https://mock.apifox.cn/m1/2858719-0-default/department/list', {
+            data: ProjectItem[];
+          }>('https://mock.apifox.cn/m1/2858719-0-default/project/list', {
             params,
           });
         }}
@@ -159,4 +166,4 @@ function Department() {
   );
 }
 
-export default Department;
+export default Project;

@@ -16,25 +16,27 @@ export const waitTime = async (time: number = 100) => {
   await waitTimePromise(time);
 };
 
-type DepartmentItem = {
-  id: number;
-  name: string; // 部门名称
-  phone_number: number;
-  email: string;
-  charger: string;
+// PersonIntegrityRecord
+type PersonIntegrityRecordItem = {
+  person_integrity_record_id: number; //个人诚信记录编号
+  person_name: string; // 个人姓名
+  implementation_department: string; //实施部门
+  decision_date: string; // 决定日期
+  person_location: string; // 个人常住地
+  person_reason: string; // 个人事由
 };
 
-const columns: ProColumns<DepartmentItem>[] = [
+const columns: ProColumns<PersonIntegrityRecordItem>[] = [
   {
-    title: 'id',
-    dataIndex: 'id',
-    key: 'id',
-    width: 48,
-    hideInSearch: true,
+    title: '个人诚信记录编号',
+    dataIndex: 'person_integrity_record_id',
+    key: 'person_integrity_record_id',
+    width: 140,
+    // hideInSearch: true,
   },
   {
-    title: '部门名称',
-    dataIndex: 'name',
+    title: '个人姓名',
+    dataIndex: 'person_name',
     // copyable: true,
     // ellipsis: true,
     // tip: '标题过长会自动收缩',
@@ -48,24 +50,29 @@ const columns: ProColumns<DepartmentItem>[] = [
     // },
   },
   {
-    title: '手机',
-    key: 'phone_number',
-    dataIndex: 'phone_number',
+    title: '实施部门',
+    key: 'implementation_department',
+    dataIndex: 'implementation_department',
     hideInSearch: true,
   },
   {
-    title: '邮箱',
-    key: 'email',
-    dataIndex: 'email',
+    title: '决定日期',
+    key: 'decision_date',
+    dataIndex: 'decision_date',
     hideInSearch: true,
   },
   {
-    title: '负责人',
-    key: 'charger',
-    dataIndex: 'charger',
+    title: '个人常住地',
+    key: 'person_location',
+    dataIndex: 'person_location',
     hideInSearch: true,
   },
-
+  {
+    title: '个人事由',
+    key: 'person_reason',
+    dataIndex: 'person_reason',
+    hideInSearch: true,
+  },
   {
     title: '操作',
     valueType: 'option',
@@ -74,7 +81,7 @@ const columns: ProColumns<DepartmentItem>[] = [
       <a
         key="editable"
         onClick={() => {
-          action?.startEditable?.(record.id);
+          action?.startEditable?.(record.person_integrity_record_id);
         }}
       >
         编辑
@@ -93,12 +100,12 @@ const columns: ProColumns<DepartmentItem>[] = [
   },
 ];
 
-function Department() {
+function PersonIntegrityRecord() {
   const actionRef = useRef<ActionType>();
   return (
     <div>
       <div></div>
-      <ProTable<DepartmentItem>
+      <ProTable<PersonIntegrityRecordItem>
         columns={columns}
         actionRef={actionRef}
         cardBordered
@@ -106,8 +113,8 @@ function Department() {
           // console.log(sort, filter); // 添加额外的sort项目
           // await waitTime(2000);
           return request<{
-            data: DepartmentItem[];
-          }>('https://mock.apifox.cn/m1/2858719-0-default/department/list', {
+            data: PersonIntegrityRecordItem[];
+          }>('https://mock.apifox.cn/m1/2858719-0-default/personIntegrityRecord/list', {
             params,
           });
         }}
@@ -159,4 +166,4 @@ function Department() {
   );
 }
 
-export default Department;
+export default PersonIntegrityRecord;
