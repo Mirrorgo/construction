@@ -5,6 +5,8 @@ import { ProTable } from '@ant-design/pro-components';
 import { Button } from 'antd';
 import { useRef } from 'react';
 import request from 'umi-request';
+import MyUpload from '@/components/MyUpload';
+import Add from './components/Add';
 export const waitTimePromise = async (time: number = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -142,17 +144,19 @@ function Department() {
         dateFormatter="string"
         headerTitle="公告列表"
         toolBarRender={() => [
-          <Button
-            key="button"
-            icon={<PlusOutlined />}
-            onClick={() => {
-              // TODO 新建
-              actionRef.current?.reload();
-            }}
-            type="primary"
-          >
-            新建
-          </Button>,
+          <MyUpload key="upload" />,
+          // <Button
+          //   key="add"
+          //   icon={<PlusOutlined />}
+          //   onClick={() => {
+          //     // TODO 新建
+          //     actionRef.current?.reload();
+          //   }}
+          //   type="primary"
+          // >
+          //   新建
+          // </Button>,
+          <Add key="add" afterAdd={async () => actionRef.current?.reload()} />,
         ]}
       />
     </div>
