@@ -29,27 +29,39 @@ export default [
     component: './Welcome',
   },
   {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
-      },
-    ],
+    path: '/main',
+    name: 'main',
+    icon: 'PieChart',
+    component: './Main/index',
   },
+  {
+    path: '/main2',
+    name: 'main2',
+    icon: 'BarChart',
+    component: './Main2/index',
+  },
+  // {
+  //   path: '/admin',
+  //   name: 'admin',
+  //   icon: 'crown',
+  //   access: 'canAdmin',
+  //   routes: [
+  //     {
+  //       path: '/admin',
+  //       redirect: '/admin/sub-page',
+  //     },
+  //     {
+  //       path: '/admin/sub-page',
+  //       name: 'sub-page',
+  //       component: './Admin',
+  //     },
+  //   ],
+  // },
   {
     //path: '/admin',
     path: '/watch-state',
     name: '监管状态',
-    icon: 'crown',
+    icon: 'VideoCameraAdd',
     access: 'canAdmin',
     routes: [
       {
@@ -85,7 +97,7 @@ export default [
     // path: '/watch-state',
     path: '/enterprise-management',
     name: '企业管理',
-    icon: 'crown',
+    icon: 'Team',
     access: 'canAdmin',
     routes: [
       {
@@ -133,7 +145,7 @@ export default [
   {
     path: '/construction-worker',
     name: '建筑工人',
-    icon: 'crown',
+    icon: 'Tool',
     access: 'canAdmin',
     routes: [
       {
@@ -161,7 +173,7 @@ export default [
   {
     path: '/electronic-certificate-management',
     name: '电子证明管理',
-    icon: 'crown',
+    icon: 'Profile',
     access: 'canAdmin',
     routes: [
       {
@@ -190,7 +202,7 @@ export default [
   {
     path: '/integrity-information-management',
     name: '诚信信息管理',
-    icon: 'crown',
+    icon: 'FileDone',
     access: 'canAdmin',
     routes: [
       {
@@ -298,12 +310,12 @@ export default [
   //   path: '/blacklistRecord',
   //   component: './BlacklistRecord',
   // },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
+  // {
+  //   name: 'list.table-list',
+  //   icon: 'table',
+  //   path: '/list',
+  //   component: './TableList',
+  // },
   {
     path: '/',
     redirect: '/welcome',

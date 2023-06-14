@@ -77,7 +77,7 @@ const InfoCard: React.FC<{
         {desc}
       </div>
       <a href={href} target="_blank" rel="noreferrer">
-        了解更多 {'>'}
+        更多信息 {'>'}
       </a>
     </div>
   );
@@ -104,8 +104,8 @@ const Welcome: React.FC = () => {
             backgroundPosition: '100% -30%',
             backgroundRepeat: 'no-repeat',
             backgroundSize: '274px auto',
-            backgroundImage:
-              "url('https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*BuFmQqsB2iAAAAAAAAAAAAAAARQnAQ')",
+            backgroundImage: "url('/img/planet_1.svg')",
+            // "url('https://gw.alipayobjects.com/mdn/rms_a9745b/afts/img/A*BuFmQqsB2iAAAAAAAAAAAAAAARQnAQ')",
           }}
         >
           <div
@@ -114,7 +114,7 @@ const Welcome: React.FC = () => {
               color: token.colorTextHeading,
             }}
           >
-            欢迎使用 Ant Design Pro
+            欢迎使用建筑行业征信管理系统
           </div>
           <p
             style={{
@@ -126,8 +126,8 @@ const Welcome: React.FC = () => {
               width: '65%',
             }}
           >
-            Ant Design Pro 是一个整合了 umi，Ant Design 和 ProComponents
-            的脚手架方案。致力于在设计规范和基础组件的基础上，继续向上构建，提炼出典型模板/业务组件/配套设计资源，进一步提升企业级中后台产品设计研发过程中的『用户』和『设计者』的体验。
+            建筑行业征信管理系统是一种用于管理和评估建筑行业相关参与方信用状况的系统。它利用信息技术和数据分析手段，收集、整合和分析建筑行业参与方的信用信息，
+            为决策者提供准确、可靠的信用评估和风险管理工具。
           </p>
           <div
             style={{
@@ -138,21 +138,47 @@ const Welcome: React.FC = () => {
           >
             <InfoCard
               index={1}
-              href="https://umijs.org/docs/introduce/introduce"
-              title="了解 umi"
-              desc="umi 是一个可扩展的企业级前端应用框架,umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。"
+              href="https://www.hanghangcha.com/"
+              title="数据收集"
+              desc="该系统通过多种渠道收集建筑行业相关参与方的信用信息。这些信息包括企业基本信息、经营状况、项目执行能力、财务状况、履约记录等。数据来源可以包括企业自行申报、公共数据库、第三方机构报告等。"
             />
             <InfoCard
               index={2}
-              title="了解 ant design"
-              href="https://ant.design"
-              desc="antd 是基于 Ant Design 设计体系的 React UI 组件库，主要用于研发企业级中后台产品。"
+              title="信用评估"
+              href="https://wiki.mbalib.com/wiki/%E4%BF%A1%E7%94%A8%E8%AF%84%E4%BC%B0%E6%A8%A1%E5%9E%8B"
+              desc="系统基于收集到的信用信息，采用各种评估模型和算法，对建筑行业参与方的信用状况进行评估和打分。评估结果可以反映企业的信用等级、风险指标和可靠性水平，为决策者提供参考依据"
             />
             <InfoCard
               index={3}
-              title="了解 Pro Components"
-              href="https://procomponents.ant.design"
-              desc="ProComponents 是一个基于 Ant Design 做了更高抽象的模板组件，以 一个组件就是一个页面为开发理念，为中后台开发带来更好的体验。"
+              title="监管监督"
+              href="https://jzsc.mohurd.gov.cn/home"
+              desc="建筑行业征信管理系统可以作为监管部门的监督工具。监管部门可以监控建筑行业参与方的信用状况和行为，及时发现违法违规行为，并采取相应的监管措施。"
+            />
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 16,
+            }}
+          >
+            <InfoCard
+              index={4}
+              href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E6%95%B4%E5%90%88"
+              title="数据整合"
+              desc="系统将收集到的信用信息进行整合和管理，建立起完整的信用档案。这些档案可以按照参与方的不同属性进行分类和索引，便于查询和分析。"
+            />
+            <InfoCard
+              index={5}
+              title="数据共享"
+              href="https://zhuanlan.zhihu.com/p/591747275"
+              desc="系统支持建筑行业参与方之间的信息共享和查询。参与方可以通过系统查询其他企业的信用信息，了解其信用状况和风险指标。这有助于提高行业的透明度和信任度，促进良性竞争和合作。"
+            />
+            <InfoCard
+              index={6}
+              title="风险管理"
+              href="https://zhuanlan.zhihu.com/p/628614372"
+              desc="系统能够帮助决策者识别和评估建筑行业参与方的潜在风险。通过分析信用评估结果和其他相关信息，系统可以发现潜在的违约风险、财务风险、项目执行风险等，并提供相应的风险预警和应对建议。"
             />
           </div>
         </div>

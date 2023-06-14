@@ -15,9 +15,13 @@ const Settings: ProLayoutProps & {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'Ant Design Pro',
+  title: '建筑行业征信管理系统 CICM',
   pwa: true,
-  logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+  logo: '/img/neu-file.svg',
+  // src="/img/construction_1.svg"
+  // logo: 'file:///D:/temp/MicrosoftEdgeDownloads/7265731e-caf0-46af-80d7-1d08b30c64cf/%E6%95%85%E5%AE%AB.svg',
+  // file:///D:/temp/MicrosoftEdgeDownloads/7265731e-caf0-46af-80d7-1d08b30c64cf/%E6%95%85%E5%AE%AB.svg
+  // logo: <img
   iconfontUrl: '',
   token: {
     // 参见ts声明，demo 见文档，通过token 修改样式

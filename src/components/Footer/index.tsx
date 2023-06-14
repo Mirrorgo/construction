@@ -1,4 +1,4 @@
-import { GithubOutlined } from '@ant-design/icons';
+// import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max';
 import React from 'react';
@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   const intl = useIntl();
   const defaultMessage = intl.formatMessage({
     id: 'app.copyright.produced',
-    defaultMessage: '蚂蚁集团体验技术部出品',
+    defaultMessage: 'NEU 出品',
   });
 
   const currentYear = new Date().getFullYear();
@@ -21,22 +21,23 @@ const Footer: React.FC = () => {
       links={[
         {
           key: 'Ant Design Pro',
-          title: 'NEU Design Pro',
-          href: 'https://pro.ant.design',
+          title: '全国建筑市场监管公共服务平台',
+          href: 'https://jzsc.mohurd.gov.cn/home',
           blankTarget: true,
         },
-        {
-          key: 'github',
-          title: <GithubOutlined />,
-          href: 'https://jzsc.mohurd.gov.cn/',
-          // href: 'https://github.com/ant-design/ant-design-pro',
-          // https://jzsc.mohurd.gov.cn/
-          blankTarget: true,
-        },
+        // {
+        //   key: 'github',
+        //   title: <GithubOutlined />,
+
+        //   href: 'https://jzsc.mohurd.gov.cn/',
+        //   // href: 'https://github.com/ant-design/ant-design-pro',
+        //   // https://jzsc.mohurd.gov.cn/
+        //   blankTarget: true,
+        // },
         {
           key: 'Ant Design',
-          title: 'NEU Design',
-          href: 'https://ant.design',
+          title: '“十四五”建筑业发展规划',
+          href: 'https://www.gov.cn/zhengce/zhengceku/2022-01/27/5670687/files/12d50c613b344165afb21bc596a190fc.pdf',
           blankTarget: true,
         },
       ]}

@@ -130,7 +130,7 @@ const Login: React.FC = () => {
           }}
           // logo={<img alt="logo" src="/logo.svg" />}
           // logo={<img alt="logo" src="/img/construction.png" />}
-          logo={<img alt="logo" src="/img/construction.svg" />}
+          logo={<img alt="logo" src="/img/construction_1.svg" />}
           // title="建筑行业征信管理系统"
           title={intl.formatMessage({ id: 'pages.login.accountLogin.title' })}
           // subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
@@ -196,7 +196,7 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: ant.design',
+                  defaultMessage: '密码默认为: ant.design',
                 })}
                 rules={[
                   {

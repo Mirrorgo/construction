@@ -1,5 +1,7 @@
 export default {
   'menu.welcome': '欢迎',
+  'menu.main': '发展趋势',
+  'menu.main2': '行业对比',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',
   'menu.admin': '管理页',
