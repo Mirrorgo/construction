@@ -40,6 +40,12 @@ export default [
     icon: 'BarChart',
     component: './Main2/index',
   },
+  {
+    path: '/main3',
+    name: 'main2',
+    icon: 'BarChart',
+    component: './Main2/index',
+  },
   // {
   //   path: '/admin',
   //   name: 'admin',
