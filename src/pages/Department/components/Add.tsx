@@ -1,6 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { ModalForm, ProForm, ProFormText } from '@ant-design/pro-components';
 import { Button, Form, message } from 'antd';
+import { DepartmentItem } from '..';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -10,13 +11,10 @@ const waitTime = (time: number = 100) => {
   });
 };
 
-export default ({ afterAdd }: { afterAdd: () => void }) => {
-  const [form] = Form.useForm<{ name: string; company: string }>();
+export default ({ afterAdd }: { afterAdd: (newValue: DepartmentItem) => void }) => {
+  const [form] = Form.useForm<DepartmentItem>();
   return (
-    <ModalForm<{
-      name: string;
-      company: string;
-    }>
+    <ModalForm<DepartmentItem>
       title="新建部门"
       trigger={
         <Button type="primary">
@@ -34,7 +32,7 @@ export default ({ afterAdd }: { afterAdd: () => void }) => {
       onFinish={async (values) => {
         // TODO: 替换为真实请求
         await waitTime(2000);
-        afterAdd();
+        afterAdd(values);
         console.log(values.name);
         message.success('提交成功');
         return true;
