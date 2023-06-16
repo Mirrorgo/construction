@@ -29,6 +29,7 @@ export type DepartmentItem = {
 
 function Department() {
   const [data, setData] = useState<DepartmentItem[]>(dataSource.data);
+  const [newId, setNewId] = useState(6);
   const actionRef = useRef<ActionType>();
   const columns: ProColumns<DepartmentItem>[] = [
     {
@@ -184,10 +185,11 @@ function Department() {
                   ...pre,
                   {
                     ...newValue,
-                    id: pre.length + 1,
+                    id: newId,
                   },
                 ];
               });
+              setNewId(newId + 1);
               // actionRef.current?.reload()
             }}
           />,
